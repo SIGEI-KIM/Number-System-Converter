@@ -5,9 +5,10 @@ from kivymd.app import MDApp
 from kivymd.uix.label import MDLabel
 from kivymd.uix.button import MDIconButton
 from kivymd.uix.button import MDRectangleFlatIconButton
-from kivymd.uix.button import MDFillRoundFlatButton
+from kivy.uix.button import Button
 from kivymd.uix.textfield import MDTextField
 from kivymd.uix.gridlayout import GridLayout
+from kivymd.uix.button import MDRaisedButton
 
 # KV String
 KV = '''
@@ -25,7 +26,7 @@ ScreenManager:
     HexadecimalToDecimalScreen:
     OctalToHexadecimalScreen:
     HexadecimalToOctalScreen:
-    MoreScreen:
+    
 
 <HomeScreen>:
     name: 'home'
@@ -41,52 +42,50 @@ ScreenManager:
                     pos: self.pos
                     size: self.size
             Label:
-                text: "Number Systems Converter"
+                text: "Number Systems Converter App"
                 halign: 'center'
                 font_size: '24sp'
         GridLayout:
-            cols: 2  # Two columns
+            cols: 1  # One columns
             padding: "10dp"
             spacing: "10dp"
-            MDFillRoundFlatButton:
+            Button:
                 text: "Binary to Decimal"
                 on_release: root.manager.current = 'binary_to_decimal'
-            MDFillRoundFlatButton:
+            Button:
                 text: "Decimal to Binary"
                 on_release: root.manager.current = 'decimal_to_binary'
-            MDFillRoundFlatButton:
+            Button:
                 text: "Binary to Octal"
                 on_release: root.manager.current = 'binary_to_octal'
-            MDFillRoundFlatButton:
+            Button:
                 text: "Octal to Binary"
                 on_release: root.manager.current = 'octal_to_binary'
-            MDFillRoundFlatButton:
+            Button:
                 text: "Binary to Hexadecimal"
                 on_release: root.manager.current = 'binary_to_hexadecimal'
-            MDFillRoundFlatButton:
+            Button:
                 text: "Hexadecimal to Binary"
                 on_release: root.manager.current = 'hexadecimal_to_binary'
-            MDFillRoundFlatButton:
+            Button:
                 text: "Octal to Decimal"
                 on_release: root.manager.current = 'octal_to_decimal'
-            MDFillRoundFlatButton:
+            Button:
                 text: "Decimal to Octal"
                 on_release: root.manager.current = 'decimal_to_octal'
-            MDFillRoundFlatButton:
+            Button:
                 text: "Decimal to Hexadecimal"
                 on_release: root.manager.current = 'decimal_to_hexadecimal'
-            MDFillRoundFlatButton:
+            Button:
                 text: "Hexadecimal to Decimal"
                 on_release: root.manager.current = 'hexadecimal_to_decimal'
-            MDFillRoundFlatButton:
+            Button:
                 text: "Octal to Hexadecimal"
                 on_release: root.manager.current = 'octal_to_hexadecimal'
-            MDFillRoundFlatButton:
+            Button:
                 text: "Hexadecimal to Octal"
                 on_release: root.manager.current = 'hexadecimal_to_octal'
-            MDRectangleFlatIconButton:
-                text: "See More"
-                on_release: root.manager.current = 'more'
+
 
 <BinaryToDecimalScreen>:
     name: 'binary_to_decimal'
@@ -102,7 +101,7 @@ ScreenManager:
                     pos: self.pos
                     size: self.size
             MDIconButton:
-                icon: "arrow-left"
+                icon:"backspace"
                 on_release: root.manager.current = 'home'
                 theme_text_color: "Secondary"
             Label:
@@ -116,10 +115,11 @@ ScreenManager:
             MDTextField:
                 id: binary_input
                 hint_text: "Enter Binary Number"
-            MDFillRoundFlatButton:
+                mode: "rectangle"
+            MDRaisedButton:
                 text: "Convert"
                 on_release: root.convert_binary_to_decimal()
-            MDFillRoundFlatButton:
+            MDRaisedButton:
                 text: "Clear"
                 on_release: root.clear_input()
             MDLabel:
@@ -139,7 +139,7 @@ ScreenManager:
                     pos: self.pos
                     size: self.size
             MDIconButton:
-                icon: "arrow-left"
+                icon:"backspace"
                 on_release: root.manager.current = 'home'
                 theme_text_color: "Secondary"
             Label:
@@ -153,10 +153,11 @@ ScreenManager:
             MDTextField:
                 id: decimal_input
                 hint_text: "Enter Decimal Number"
-            MDFillRoundFlatButton:
+                mode: "rectangle"
+            MDRaisedButton:
                 text: "Convert"
                 on_release: root.convert_decimal_to_binary()
-            MDFillRoundFlatButton:
+            MDRaisedButton:
                 text: "Clear"
                 on_release: root.clear_input()
             MDLabel:
@@ -176,7 +177,7 @@ ScreenManager:
                     pos: self.pos
                     size: self.size
             MDIconButton:
-                icon: "arrow-left"
+                icon:"backspace"
                 on_release: root.manager.current = 'home'
                 theme_text_color: "Secondary"
             Label:
@@ -190,10 +191,11 @@ ScreenManager:
             MDTextField:
                 id: binary_input
                 hint_text: "Enter Binary Number"
-            MDFillRoundFlatButton:
+                mode: "rectangle"
+            MDRaisedButton:
                 text: "Convert"
                 on_release: root.convert_binary_to_octal()
-            MDFillRoundFlatButton:
+            MDRaisedButton:
                 text: "Clear"
                 on_release: root.clear_input()
             MDLabel:
@@ -213,7 +215,7 @@ ScreenManager:
                     pos: self.pos
                     size: self.size
             MDIconButton:
-                icon: "arrow-left"
+                icon:"backspace"
                 on_release: root.manager.current = 'home'
                 theme_text_color: "Secondary"
             Label:
@@ -227,10 +229,11 @@ ScreenManager:
             MDTextField:
                 id: octal_input
                 hint_text: "Enter Octal Number"
-            MDFillRoundFlatButton:
+                mode: "rectangle"
+            MDRaisedButton:
                 text: "Convert"
                 on_release: root.convert_octal_to_binary()
-            MDFillRoundFlatButton:
+            MDRaisedButton:
                 text: "Clear"
                 on_release: root.clear_input()
             MDLabel:
@@ -250,7 +253,7 @@ ScreenManager:
                     pos: self.pos
                     size: self.size
             MDIconButton:
-                icon: "arrow-left"
+                icon:"backspace"
                 on_release: root.manager.current = 'home'
                 theme_text_color: "Secondary"
             Label:
@@ -264,10 +267,11 @@ ScreenManager:
             MDTextField:
                 id: binary_input
                 hint_text: "Enter Binary Number"
-            MDFillRoundFlatButton:
+                mode: "rectangle"
+            MDRaisedButton:
                 text: "Convert"
                 on_release: root.convert_binary_to_hexadecimal()
-            MDFillRoundFlatButton:
+            MDRaisedButton:
                 text: "Clear"
                 on_release: root.clear_input()
             MDLabel:
@@ -287,7 +291,7 @@ ScreenManager:
                     pos: self.pos
                     size: self.size
             MDIconButton:
-                icon: "arrow-left"
+                icon:"backspace"
                 on_release: root.manager.current = 'home'
                 theme_text_color: "Secondary"
             Label:
@@ -301,10 +305,11 @@ ScreenManager:
             MDTextField:
                 id: hexadecimal_input
                 hint_text: "Enter Hexadecimal Number"
-            MDFillRoundFlatButton:
+                mode: "rectangle"
+            MDRaisedButton:
                 text: "Convert"
                 on_release: root.convert_hexadecimal_to_binary()
-            MDFillRoundFlatButton:
+            MDRaisedButton:
                 text: "Clear"
                 on_release: root.clear_input()
             MDLabel:
@@ -324,7 +329,7 @@ ScreenManager:
                     pos: self.pos
                     size: self.size
             MDIconButton:
-                icon: "arrow-left"
+                icon:"backspace"
                 on_release: root.manager.current = 'home'
                 theme_text_color: "Secondary"
             Label:
@@ -338,10 +343,11 @@ ScreenManager:
             MDTextField:
                 id: octal_input
                 hint_text: "Enter Octal Number"
-            MDFillRoundFlatButton:
+                mode: "rectangle"
+            MDRaisedButton:
                 text: "Convert"
                 on_release: root.convert_octal_to_decimal()
-            MDFillRoundFlatButton:
+            MDRaisedButton:
                 text: "Clear"
                 on_release: root.clear_input()
             MDLabel:
@@ -361,7 +367,7 @@ ScreenManager:
                     pos: self.pos
                     size: self.size
             MDIconButton:
-                icon: "arrow-left"
+                icon:"backspace"
                 on_release: root.manager.current = 'home'
                 theme_text_color: "Secondary"
             Label:
@@ -375,10 +381,11 @@ ScreenManager:
             MDTextField:
                 id: decimal_input
                 hint_text: "Enter Decimal Number"
-            MDFillRoundFlatButton:
+                mode: "rectangle"
+            MDRaisedButton:
                 text: "Convert"
                 on_release: root.convert_decimal_to_octal()
-            MDFillRoundFlatButton:
+            MDRaisedButton:
                 text: "Clear"
                 on_release: root.clear_input()
             MDLabel:
@@ -398,7 +405,7 @@ ScreenManager:
                     pos: self.pos
                     size: self.size
             MDIconButton:
-                icon: "arrow-left"
+                icon:"backspace"
                 on_release: root.manager.current = 'home'
                 theme_text_color: "Secondary"
             Label:
@@ -412,10 +419,11 @@ ScreenManager:
             MDTextField:
                 id: decimal_input
                 hint_text: "Enter Decimal Number"
-            MDFillRoundFlatButton:
+                mode: "rectangle"
+            MDRaisedButton:
                 text: "Convert"
                 on_release: root.convert_decimal_to_hexadecimal()
-            MDFillRoundFlatButton:
+            MDRaisedButton:
                 text: "Clear"
                 on_release: root.clear_input()
             MDLabel:
@@ -435,7 +443,7 @@ ScreenManager:
                     pos: self.pos
                     size: self.size
             MDIconButton:
-                icon: "arrow-left"
+                icon:"backspace"
                 on_release: root.manager.current = 'home'
                 theme_text_color: "Secondary"
             Label:
@@ -449,10 +457,11 @@ ScreenManager:
             MDTextField:
                 id: hexadecimal_input
                 hint_text: "Enter hexadecimal Number"
-            MDFillRoundFlatButton:
+                mode: "rectangle"
+            MDRaisedButton:
                 text: "Convert"
                 on_release: root.convert_hexadecimal_to_decimal()
-            MDFillRoundFlatButton:
+            MDRaisedButton:
                 text: "Clear"
                 on_release: root.clear_input()
             MDLabel:
@@ -472,7 +481,7 @@ ScreenManager:
                     pos: self.pos
                     size: self.size
             MDIconButton:
-                icon: "arrow-left"
+                icon:"backspace"
                 on_release: root.manager.current = 'home'
                 theme_text_color: "Secondary"
             Label:
@@ -486,10 +495,11 @@ ScreenManager:
             MDTextField:
                 id: octal_input
                 hint_text: "Enter octal Number"
-            MDFillRoundFlatButton:
+                mode: "rectangle"
+            MDRaisedButton:
                 text: "Convert"
                 on_release: root.convert_octal_to_hexadecimal()
-            MDFillRoundFlatButton:
+            MDRaisedButton:
                 text: "Clear"
                 on_release: root.clear_input()
             MDLabel:
@@ -509,7 +519,7 @@ ScreenManager:
                     pos: self.pos
                     size: self.size
             MDIconButton:
-                icon: "arrow-left"
+                icon:"backspace"
                 on_release: root.manager.current = 'home'
                 theme_text_color: "Secondary"
             Label:
@@ -523,72 +533,15 @@ ScreenManager:
             MDTextField:
                 id: hexadecimal_input
                 hint_text: "Enter hexadecimal Number"
-            MDFillRoundFlatButton:
+                mode: "rectangle"
+            MDRaisedButton:
                 text: "Convert"
                 on_release: root.convert_hexadecimal_to_octal()
-            MDFillRoundFlatButton:
+            MDRaisedButton:
                 text: "Clear"
                 on_release: root.clear_input()
             MDLabel:
                 id: hexadecimal_to_octal_result     
-
-<MoreScreen>:
-    name: 'more'
-
-    BoxLayout:  # Root widget for MoreScreen
-        orientation: 'vertical'
-
-        MDBoxLayout:
-            size_hint_y: None
-            height: dp(50)
-            canvas:
-                Color:
-                    rgba: 0, 0, 1, 1  # Blue background color (RGBA values)
-                Rectangle:
-                    pos: self.pos
-                    size: self.size
-            MDIconButton:
-                icon: "arrow-left"
-                on_release: root.manager.current = 'home'
-                theme_text_color: "Secondary"
-            Label:
-                text: "More About App"
-                halign: 'center'
-                font_size: '24sp'
-
-        GridLayout:
-            cols: 1
-            spacing: "10dp"
-            padding: "10dp"
-
-            MDLabel:
-                text: "Welcome!!"
-                halign: 'center'
-                padding: "2dp"
-
-            MDLabel:
-                text: "Developed by Group 3."
-                halign: 'center'
-                padding: "5dp"
-
-            MDLabel:
-                text:"1.CT100/G/15963/22 - ENOCK KIMUTAI SIGEI"
-                halign: 'left'
-            MDLabel:
-                text:"2.CT100/G/15961/22 - ELKANA KIPLANGAT NGENO"
-                halign: 'left'
-            MDLabel:
-                text:"3.CT100/G/15861/22 - TERESIA MUNDE"
-                halign: 'left'
-            MDLabel:
-                text:"4.CT100/G/12088/20 - DENIS THITAI"
-                halign: 'left'
-            MDLabel:
-                text:"5.CT100/G/15968/22 - EVANS KIPKOSGEI"
-                halign: 'left'
-            
-
-
 
 '''
 
@@ -810,8 +763,8 @@ class HexadecimalToOctalScreen(Screen):
         self.ids.hexadecimal_input.text = ""
         self.ids.hexadecimal_to_octal_result.text = ""
 
-class MoreScreen(Screen):
-    pass
+# class MoreScreen(Screen):
+#     pass
 
 class NumberSystemsConverterApp(MDApp):
     def build(self):
